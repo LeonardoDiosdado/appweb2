@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ titulo }} | Biblioteca UDL. </title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            background-color: #f4f7fb;
+            font-family: Arial, sans-serif;
+            color: #263238;
+        }
+
+        /* Barra de navegacion */
+        .navbar-custom {
+            background-color: #16324f;
+            padding: 15px 25px;
+        }
+
+        .navbar-custom .container-fluid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* Nombre de la biblioteca */
+        .navbar-custom .navbar-brand {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0;
+        }
+
+        /* Lista de enlaces */
+        .menu-enlaces {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* Enlaces */
+        .navbar-custom .nav-link {
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        /* Efecto al pasar el cursor */
+        .navbar-custom .nav-link:hover {
+            background-color: #315b7d;
+            color: white;
+        }
+
+        /* Contenido de las paginas */
+        .contenido {
+            padding: 30px;
+        }
+
+        .contenido h1 {
+            color: #16324f;
+            margin-bottom: 20px;
+        }
+
+        /* Adaptacion para celulares */
+        @media (max-width: 600px) {
+            .navbar-custom {
+                padding: 15px;
+            }
+
+            .navbar-custom .container-fluid {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu-enlaces {
+                gap: 5px;
+            }
+
+            .navbar-custom .nav-link {
+                padding: 8px 10px;
+            }
+
+            .contenido {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-custom">
+        <div class="container-fluid">
+
+            <a class="navbar-brand"
+               href="{{ url_for('inicio') }}">
+                Biblioteca UDL.
+            </a>
+
+            <ul class="navbar-nav menu-enlaces">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('inicio') }}">
+                        Inicio
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('catalogo') }}">
+                        Catálogo
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('servicios') }}">
+                        Servicios
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contacto') }}">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container-fluid contenido">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+</body>
+</html>
